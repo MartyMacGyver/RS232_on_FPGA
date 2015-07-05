@@ -1,17 +1,19 @@
-### Papilio Pro
+## Prohibit the automatic placement of pins that are connected to VCC or GND for configuration.
 CONFIG PROHIBIT=P144;
 CONFIG PROHIBIT=P69;
 CONFIG PROHIBIT=P60;
- 
-NET CLK LOC="P94" | IOSTANDARD=LVTTL | PERIOD=31.25ns; # CLK
-NET TX LOC="P105" | IOSTANDARD=LVTTL | DRIVE=8 | SLEW=FAST | PULLUP; # TX
+
+# Papilio Pro 1.3 + LogicStart MegaWing 1.2
+NET CLK            LOC="P94"  | IOSTANDARD=LVTTL | PERIOD=31.25ns;               # CLK
+NET RX             LOC="P101" | IOSTANDARD=LVTTL | DRIVE=8 | SLEW=FAST;          # RX
+NET TX             LOC="P105" | IOSTANDARD=LVTTL | DRIVE=8 | SLEW=FAST | PULLUP; # TX
 NET LED1           LOC="P112" | IOSTANDARD=LVTTL | DRIVE=8 | SLEW=SLOW;          # LED1
-#NET RX LOC="P101" | IOSTANDARD=LVTTL | DRIVE=8 | SLEW=FAST; # RX
-NET LED(7) LOC="P114" | IOSTANDARD=LVTTL; # C0
-NET LED(6) LOC="P115" | IOSTANDARD=LVTTL; # C1
-NET LED(5) LOC="P116" | IOSTANDARD=LVTTL; # C2
-NET LED(4) LOC="P117" | IOSTANDARD=LVTTL; # C3
-NET LED(3) LOC="P118" | IOSTANDARD=LVTTL; # C4
-NET LED(2) LOC="P119" | IOSTANDARD=LVTTL; # C5
-NET LED(1) LOC="P120" | IOSTANDARD=LVTTL; # C6
-NET LED(0) LOC="P121" | IOSTANDARD=LVTTL; # C7
+
+NET LED(0)         LOC="P123" | IOSTANDARD=LVTTL;                                # C8
+NET LED(1)         LOC="P124" | IOSTANDARD=LVTTL;                                # C9
+NET LED(2)         LOC="P126" | IOSTANDARD=LVTTL;                                # C10
+NET LED(3)         LOC="P127" | IOSTANDARD=LVTTL;                                # C11
+NET LED(4)         LOC="P131" | IOSTANDARD=LVTTL;                                # C12
+NET LED(5)         LOC="P132" | IOSTANDARD=LVTTL;                                # C13
+NET LED(6)         LOC="P133" | IOSTANDARD=LVTTL;                                # C14
+NET LED(7)         LOC="P134" | IOSTANDARD=LVTTL;                                # C15
