@@ -6,7 +6,7 @@ CONFIG PROHIBIT=P60;
 # Papilio Pro 1.3 + LogicStart MegaWing 1.2
 NET CLK            LOC="P94"  | IOSTANDARD=LVTTL | PERIOD=31.25ns;               # CLK
 
-NET TX             LOC="P101" | IOSTANDARD=LVTTL | DRIVE=8 | SLEW=FAST;          # RX
+NET RX             LOC="P101" | IOSTANDARD=LVTTL | DRIVE=8 | SLEW=FAST;          # RX
 #NET TX             LOC="P105" | IOSTANDARD=LVTTL | DRIVE=8 | SLEW=FAST | PULLUP; # TX
 
 NET LED1           LOC="P112" | IOSTANDARD=LVTTL | DRIVE=8 | SLEW=SLOW;          # LED on the board

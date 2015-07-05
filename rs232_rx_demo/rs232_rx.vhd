@@ -5,13 +5,12 @@ use IEEE.NUMERIC_STD.ALL;
 entity rs232_rx is
  GENERIC (
     frequency : natural;
-    baud : natural
- );
+    baud : natural );
  Port ( clk : in STD_LOGIC;
         rx : in STD_LOGIC;
         data : out STD_LOGIC_VECTOR (7 downto 0);
         data_strobe : out STD_LOGIC;
-		led_brd: out STD_LOGIC);
+		led_brd: out STD_LOGIC );
 end rs232_rx;
  
 architecture RTL of rs232_rx is
