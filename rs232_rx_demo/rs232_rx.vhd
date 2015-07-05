@@ -10,17 +10,27 @@ entity rs232_rx is
  Port ( clk : in STD_LOGIC;
         rx : in STD_LOGIC;
         data : out STD_LOGIC_VECTOR (7 downto 0);
-        data_strobe : out STD_LOGIC);
+        data_strobe : out STD_LOGIC;
+		led_brd: out STD_LOGIC);
 end rs232_rx;
  
-architecture Behavioral of rs232_rx is
+architecture RTL of rs232_rx is
  signal oversampled_bits : std_logic_vector(39 downto 0);
  signal baud_x4 : unsigned(11 downto 0) := (others => '0');
+ signal led_state: Std_logic := '0';
 begin
  
-process(clk)
+process(clk, led_state)
    begin
+	led_brd <= led_state;
       if rising_edge(clk) then
+	     if led_state = '1' then
+			led_state <= '0';
+	     else
+		    led_state <= '1';
+		 end if;
+		 led_brd <= led_state;
+		 
          data_strobe <= '0';
  
          if baud_x4 = 0 then
@@ -47,5 +57,5 @@ process(clk)
          end if;
       end if;
    end process;
-end Behavioral;
+end RTL;
 
